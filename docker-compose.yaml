@@ -1,8 +1,8 @@
 version: '3.7'
 services:
-  api:
+  backend:
     build:
-      context: ./api
+      context: ./backend
       dockerfile: Dockerfile
     command: 'php artisan serve --host=0.0.0.0'
     environment:
@@ -14,7 +14,7 @@ services:
     ports:
       - 8000:8000
     volumes:
-      - ./api:/app/api
+      - ./backend:/app/backend
     depends_on:
       - db
 
@@ -28,7 +28,7 @@ services:
     volumes:
       - ./frontend:/app/frontend
     depends_on:
-      - api
+      - backend
 
   db:
     image: mysql:latest
