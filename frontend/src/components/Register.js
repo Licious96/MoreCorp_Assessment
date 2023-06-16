@@ -42,17 +42,15 @@ const Register = () => {
             sessionStorage.setItem('token', res.data.token)
             navigate('/home')
         } catch (error) {
+            setLoading(false)
             if (error.response.data?.name) {
                 setNameError(error.response.data?.name[0])
-                setLoading(false)
             }
             if (error.response.data?.email) {
                 setEmailError(error.response.data?.email[0])
-                setLoading(false)
             }
             if (error.response.data?.password) {
                 setPasswordError(error.response.data?.password[0])
-                setLoading(false)
             }
         }
     };
