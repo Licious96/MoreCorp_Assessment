@@ -7,10 +7,9 @@ services:
     command: 'php artisan serve --host=0.0.0.0'
     environment:
       DB_HOST: db
-      DB_PORT: 3306
-      DB_DATABASE: more_corp
-      DB_USERNAME: root
-      DB_PASSWORD: pass
+      DB_DATABASE: 'more_corp'
+      DB_USERNAME: 'root'
+      DB_PASSWORD: 'pass'
     ports:
       - 8000:8000
     volumes:
@@ -34,9 +33,7 @@ services:
     image: mysql:latest
     environment:
       MYSQL_DATABASE: 'more_corp'
-      MYSQL_USER: root
-      MYSQL_ROOT: root
-      MYSQL_PASSWORD: pass
-      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_ROOT: 'root'
+      MYSQL_ROOT_PASSWORD: 'pass'
     volumes:
       - ./storage/dbdata:/var/lib/mysql
